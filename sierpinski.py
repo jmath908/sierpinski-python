@@ -1,5 +1,3 @@
-
-
 import pygame
 
 # This is a list of predefined pygame Color objects
@@ -20,27 +18,13 @@ WHITE = -1
 
 # This function draws a triangle using the polygon function from pygames draw
 # module.
-# p1 - is the coordinates of the first vertext of the triangle
-# p2 - is the coordinates of the second vertex of the triangle
-# p3 - is the coordinates of the third vertex of the triangle
-# All coordinates are given as a list of two floats, [x, y] that specify a
-# position on the pygame screen.
-# color - is an integer constant used to index into the colors list to select a
-# pygame Color object to assign a color to this triangle.
-# line_width - is an integer that determines the thickness of the lines used to
-# draw the triangle. The larger the integer the thicker the line.
-# If line-width is set to 0, then pygame will fill the triangle in with the 
-# chosen color.
-# screen - This variables stores a reference to the pygame screen object upon
-# which the program will draw.
-# This function has no return value.
+
 def draw_triangle(p1, p2, p3, color, line_width, screen):
     # Study the documentation of the pygame draw module to see how this works.
     pygame.draw.polygon(screen, colors[color], [p1, p2, p3], line_width)
     # The flip() function causes the drawn image to appear on the screen.
     pygame.display.flip()
 
-# THIS FUNCTION MUST BE COMPLETED BY THE STUDENT.
 # This function returns a point that lies at the midpoint between the input
 # points.
 # p1 - the coordinates of the first point
@@ -55,17 +39,9 @@ def find_midpoint(p1, p2):
     
     return coord
 
-# THIS FUNCTION MUST BE COMPLETED BY THE STUDENT
 # This function draw a tringle, and then recursively calls it self to ensure
 # that three smaller triangles are drawn within the new triangle, as described
 # by the Sierpinski Triangle algorithm.
-# degree - This describes the depth of recursion remaining--how many more levels
-# of triangles are going to be drawn in this image.
-# p1 - the coordinates of the first vertex of the new triangle
-# p2 - the coordinates of the second vertex of the new triangle
-# p3 - the coordinates of the third vertex of the new triangle
-# color - the color of the new triangle
-# line_width - The width of the line used to draw the triangle.
 # screen - The pygame surface upon which the Sierpinski triangle will be drawn
 def sierpinski(degree, p1, p2, p3, color, line_width, screen):
     p4=find_midpoint(p1,p2)
@@ -121,8 +97,6 @@ def main():
     draw_triangle(p1, p2, p3, initial_color, initial_line_width, screen)
     sierpinski(degree, p1, p2, p3, initial_color, initial_line_width, screen)
 
-    # DON'T CHANGE THE CODE HERE
-    # DON'T TOUCH THIS LOOP
     done = False
     count = 0
     while not done:
@@ -135,8 +109,6 @@ def main():
 
     print("\nNow Quitting")
     pygame.quit()
-    # DON'T CHANGE THE CODE HERE
-    
-# DON'T CHANGE THIS EITHER
+
 if __name__ == "__main__":
     main()
